@@ -3,6 +3,9 @@
 
 
 
+<% if policy(@idea).update? %>
 
 <p> <%= link_to 'Edit', edit_idea_path(@idea) %> </p>
-<p> <%= link_to 'Destroy Board', idea_path(@idea), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+<p> <%= link_to 'Destroy', idea_path(@idea), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+
+<% end %>

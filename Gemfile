@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+gem 'pundit'
+
 gem 'simple_form'
 
 gem "twitter-bootstrap-rails"
