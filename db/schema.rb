@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150608181822) do
-=======
-ActiveRecord::Schema.define(version: 20150608152448) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "likes"
@@ -28,7 +25,6 @@ ActiveRecord::Schema.define(version: 20150608152448) do
 
   add_index "comments", ["idea_id"], name: "index_comments_on_idea_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
->>>>>>> refs/remotes/origin/master
 
   create_table "ideas", force: :cascade do |t|
     t.integer  "likes",       default: 0
