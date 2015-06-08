@@ -1,0 +1,16 @@
+<h1>Ideas Index</h1>
+
+<h1> Ideas: </h1>
+<div class="row">
+<% @ideas.each do | idea |%>
+	<div class="col-sm-6 col-md-4 col-lg-3">
+	<p> 
+	<%= link_to idea.name, idea_path(idea) %>
+	</p>
+	</div>
+<% end %>
+</div>
+
+<div>
+<p> <%= link_to 'add an idea', new_idea_path %> </p>
+</div>
