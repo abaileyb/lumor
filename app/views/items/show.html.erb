@@ -1,7 +1,7 @@
 <h1> <%= @item.name %> $<%= @item.price %> </h1>
 <h2> <%= @item.description %> </h2>
 
-
+<p> <%= link_to 'Purchase!', new_item_charge_path(@item) %> </p>
 
 <% if policy(@item).update? %>
 

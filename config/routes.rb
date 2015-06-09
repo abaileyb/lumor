@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 #test this below
   resources :ideas
 
-  resources :items
+  resources :items do
+    resources :charges
+  end
+
+  resources :charges
 
   resources :idea do
     resources :comments
