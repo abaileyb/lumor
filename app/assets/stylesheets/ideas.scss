@@ -6,8 +6,7 @@
  	text-align: center;
  }
 
-
- img{
+ .photos_show_size{
  	height: 250px;
  	max-width: 300px;
  	width: auto;
@@ -16,4 +15,21 @@
 
 h1{
 	text-align: center;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.item-image-box {
+	padding: 20px;
 }

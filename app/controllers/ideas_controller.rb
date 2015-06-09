@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
 	def show
 		@idea = Idea.find(params[:id])
 		@photos = Photo.where(idea_id: @idea.id)
+		@comments = Comment.where(idea_id: @idea.id)
 	end
 
 	def new

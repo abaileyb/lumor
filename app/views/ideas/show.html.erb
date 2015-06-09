@@ -1,18 +1,20 @@
 <h1> <%= @idea.name %> - <%= @idea.description %> </h1>
 <p> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </p>
 
-<div class="photo_align">
-	<% @photos.each do |photo| %>
-		<td><%= image_tag(photo.id.to_s + "/" + photo.image_file_name)%></td>
+<div class="row row-centered">
+<% @photos.each do |photo| %>
+	<div class="col-sm-3 col-centered item-image-box">
+		<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
 		<p> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
-	<% end %>
+	</div>
+<% end %>
 </div>
 
 
 <% if Like::Like.liking?(current_user, @idea) %> <!--This is Better -->
-  <%= link_to image_tag(asset_path( 'dislike.png' )), like_path_for(@idea), method: :delete %>
+  <%= link_to image_tag(asset_path( 'dislike.png' ), height: 30, width: 60), like_path_for(@idea), method: :delete %>
 <% else %>
-  <%= link_to image_tag(asset_path( 'like.png' )) , like_path_for(@idea), method: :post %>
+  <%= link_to image_tag(asset_path( 'like.png' ), height: 30, width: 60) , like_path_for(@idea), method: :post %>
 <% end %>
 
 
@@ -20,15 +22,20 @@
 
 
 <h2>Comments</h2>
-<%= render @idea.comments %>
+
+<% @comments.each do |comment| %>
+	<h2><%= User.find(comment.user_id).first_name %></h2>
+	<strong>Comment:</strong>
+  	<p><%= comment.text %></p>
+  	<%= link_to 'Destroy Comment', [comment.idea, comment],
+        method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
  
 <h2>Add a comment:</h2>
+
 <%= render 'comments/form' %>
 
-<% if policy(@idea).update? %>
 
-<p> <%= link_to 'Edit', edit_idea_path(@idea) %> </p>
-<p> <%= link_to 'Destroy', idea_path(@idea), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
 
-<% end %>
+
 

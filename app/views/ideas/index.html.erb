@@ -1,18 +1,15 @@
 <h1>Ideas Index</h1>
 
 
-<div class="row">
+<div class="row row-centered">
 <% @ideas.each do | idea |%>
-	<div class="col-sm-6 col-md-4 col-lg-3">
-	<p> 
-	<%= link_to idea.name, idea_path(idea) %>
-	</p>
-
-	<% if idea.photos.first %>
-		<td><%= image_tag(idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name)%></td>
-	<% else %>
-		<img src="<%= asset_path( 'default-image.png' ) %>" >
-	<% end %>
+	<div class="col-sm-3 col-centered item-image-box">
+		<p> <%= link_to idea.name, idea_path(idea) %> </p>
+		<% if idea.photos.first %>
+			<td><%= image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name), height: 300, width: 300) %></td>
+		<% else %>
+			<img src="<%= asset_path( 'default-image.png' ) %>" height="300px" width="300px" >
+		<% end %>
 
 
 	</div>
