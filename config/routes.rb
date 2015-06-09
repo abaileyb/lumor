@@ -14,6 +14,12 @@ mount Like::Engine => '/'
 #test this below
   resources :ideas
 
+  resources :items do
+    resources :charges
+  end
+
+  resources :charges
+
   resources :idea do
     resources :comments
   end
