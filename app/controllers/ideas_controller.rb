@@ -65,14 +65,13 @@ class IdeasController < ApplicationController
 
 	def destroy
 		@idea = Idea.find(params[:id])
-		authorize @idea
 		@idea.destroy
 		redirect_to ideas_path
 	end
 
 	private
 		def idea_params
-			params.require(:idea).permit(:name, :description)
+			params.require(:idea).permit(:name, :description, :price)
 		end
 
 
