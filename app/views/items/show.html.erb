@@ -1,0 +1,11 @@
+<h1> <%= @item.name %> $<%= @item.price %> </h1>
+<h2> <%= @item.description %> </h2>
+
+
+
+<% if policy(@item).update? %>
+
+<p> <%= link_to 'Edit', edit_item_path(@item) %> </p>
+<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+
+<% end %>

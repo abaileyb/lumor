@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 #test this below
   resources :ideas
 
+  resources :items
+
   resources :idea do
     resources :comments
   end
