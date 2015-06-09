@@ -1,6 +1,7 @@
 class ChargesController < ApplicationController
 	def new
 		@item = Item.find(params[:item_id])
+		
 	end
 
 	def create
@@ -9,6 +10,10 @@ class ChargesController < ApplicationController
 	  @item = Item.find(params[:item_id])
 	  @amount = @item.price * 100
 
+#i think this should take data from the stripe form 
+	  :size => params[:size]
+	  :extra => params[:description]
+	  
 	  customer = Stripe::Customer.create(
 	    :email => 'example@stripe.com',
 	    :card  => params[:stripeToken]
@@ -25,5 +30,8 @@ class ChargesController < ApplicationController
 	  flash[:error] = e.message
 	  redirect_to charges_path
 	end
+
+	
+
 
 end

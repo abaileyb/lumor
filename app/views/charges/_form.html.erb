@@ -1,0 +1,19 @@
+<%= form_tag item_charges_path(@item) do %>
+ <p> 
+ <%= select_tag "size", "<option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option>".html_safe, multiple: false, class: 'form_input', id: 'unique_id' %>
+ </p>
+ <p> 
+ <%= text_area_tag "description", 'comments?' %>
+ </p>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="AEPi Omega D"
+          data-description=<%= @item.name %> 
+          data-amount=<%= @item.price * 100 %> 
+          data-allow-remember-me=false
+          >
+ </script>
+
+
+<% end %>
+
