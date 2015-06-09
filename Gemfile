@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+gem 'pundit'
+
+gem 'like', '0.2.1'
+
 gem 'simple_form'
 
 gem 'paperclip'

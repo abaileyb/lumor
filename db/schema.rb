@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608181312) do
+ActiveRecord::Schema.define(version: 20150609085428) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "likes"
+    t.string   "title"
+    t.text     "text"
+    t.integer  "idea_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["idea_id"], name: "index_comments_on_idea_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "ideas", force: :cascade do |t|
     t.integer  "likes",       default: 0
@@ -23,6 +36,17 @@ ActiveRecord::Schema.define(version: 20150608181312) do
   end
 
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id"
+
+  create_table "like_likes", force: :cascade do |t|
+    t.string   "liker_type",    null: false
+    t.integer  "liker_id",      null: false
+    t.string   "likeable_type", null: false
+    t.integer  "likeable_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "like_likes", ["liker_type", "liker_id", "likeable_type", "likeable_id"], name: "unique_like_likes", unique: true
 
   create_table "photos", force: :cascade do |t|
     t.string   "image_file_name"
@@ -52,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150608181312) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "year"
+    t.integer  "role",                   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

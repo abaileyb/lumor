@@ -54,6 +54,7 @@ class IdeasController < ApplicationController
 
 	def update
 		@idea = Idea.find params[:id]
+		authorize @idea
 		if @idea.update(idea_params)
 			redirect_to idea_path(@idea)
 		else
@@ -63,6 +64,7 @@ class IdeasController < ApplicationController
 
 	def destroy
 		@idea = Idea.find(params[:id])
+		authorize @idea
 		@idea.destroy
 		redirect_to ideas_path
 	end
