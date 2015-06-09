@@ -17,6 +17,8 @@
         <li class="active"> <%= link_to 'Home', root_path, :class => 'navbar-link' %><span class="sr-only">(current)</span></a></li>
         <% if user_signed_in? %>
         <li><%= link_to 'Ideas', ideas_path %> </li>
+        <li><%= link_to 'Store', items_path %> </li>
+
   
 
         <% end %>
