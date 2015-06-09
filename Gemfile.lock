@@ -190,6 +190,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   like (= 0.2.1)
+  paperclip
   pry-rails
   pundit
   rails (= 4.2.1)

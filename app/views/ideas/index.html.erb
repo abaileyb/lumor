@@ -1,6 +1,6 @@
 <h1>Ideas Index</h1>
 
-<h1> Ideas: </h1>
+
 <div class="row">
 <% @ideas.each do | idea |%>
 	<div class="col-sm-6 col-md-4 col-lg-3">
@@ -11,7 +11,7 @@
 	<% if idea.photos.first %>
 		<td><%= image_tag(idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name)%></td>
 	<% else %>
-		<img src="<%= asset_path( 'default-image.png' ) %>" />
+		<img src="<%= asset_path( 'default-image.png' ) %>" >
 	<% end %>
 
 
