@@ -1,8 +1,14 @@
-<h1> <%= @idea.name %> </h1>
-<h2> <%= @idea.description %> </h2>
+<h1> <%= @idea.name %> - <%= @idea.description %> </h1>
+<p> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </p>
 
+<div class="photo_align">
+	<% @photos.each do |photo| %>
+		<td><%= image_tag(photo.id.to_s + "/" + photo.image_file_name)%></td>
+		<p> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+	<% end %>
+</div>
 
 
 
 <p> <%= link_to 'Edit', edit_idea_path(@idea) %> </p>
-<p> <%= link_to 'Destroy Board', idea_path(@idea), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+<p> <%= link_to 'Destroy Idea', idea_path(@idea), method: :delete, data:{ confirm: "Are you sure?" } %> </p>

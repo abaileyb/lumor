@@ -7,6 +7,7 @@ class IdeasController < ApplicationController
 
 	def show
 		@idea = Idea.find(params[:id])
+		@photos = Photo.where(idea_id: @idea.id)
 	end
 
 	def new
@@ -22,6 +23,28 @@ class IdeasController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def create
+  		@idea = Idea.new(idea_params)
+
+  		respond_to do |format|
+    		if @idea.save
+     
+      			if params[:images]
+        #===== The magic is here ;)
+        			params[:images].each { |image|
+          			@idea.photos.create(image: image)
+        		}
+      			end
+
+      			format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
+      			format.json { render json: @idea, status: :created, location: @idea }
+    		else
+      		format.html { render action: "new" }
+      		format.json { render json: @idea.errors, status: :unprocessable_entity }
+    		end
+  		end
 	end
 
 
