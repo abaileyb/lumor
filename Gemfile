@@ -5,7 +5,11 @@ gem 'devise'
 
 gem 'pundit'
 
+gem 'like', '0.2.1'
+
 gem 'simple_form'
+
+gem 'paperclip'
 
 gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -7,6 +7,14 @@
 	<p> 
 	<%= link_to idea.name, idea_path(idea) %>
 	</p>
+
+	<% if idea.photos.first %>
+		<td><%= image_tag(idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name)%></td>
+	<% else %>
+		<img src="<%= asset_path( 'default-image.png' ) %>" />
+	<% end %>
+
+
 	</div>
 <% end %>
 </div>
