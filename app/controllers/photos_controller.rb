@@ -35,9 +35,14 @@ class PhotosController < ApplicationController
     
 
   def destroy
-      @photo = Photo.find(params[:id])
+    @photo = Photo.find(params[:id])
+    if @photo.item_id
+      @photo.destroy
+      redirect_to item_path(@photo.item)
+    else
       @photo.destroy
       redirect_to idea_path(@photo.idea)
+    end
   end
 
   private
