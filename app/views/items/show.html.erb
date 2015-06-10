@@ -4,8 +4,7 @@
 <p> <%= render 'charges/form' %></p>
 
 <% if policy(@item).update? %>
-
+<p> <%= link_to 'Orders', item_orders_path(@item) %> </p>
 <p> <%= link_to 'Edit', edit_item_path(@item) %> </p>
 <p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
-
 <% end %>

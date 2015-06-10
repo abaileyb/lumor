@@ -26,9 +26,12 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
+	  if @extra == "comments?"
+	  	@extra = '[no order comments]'
+	  end
 
 	  Order.create(name: "#{@user.first_name} #{@user.last_name}", 
-	  	size: @siz, comment: @extra, product: @item.name, price: @item.price)
+	  	size: @siz, comment: @extra, product: @item.name, price: @item.price, item_id: @item.id)
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

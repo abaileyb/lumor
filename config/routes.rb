@@ -8,6 +8,13 @@ mount Like::Engine => '/'
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+
+  resources :orders
+  
+  resources :items do
+    resources :orders
+  end
+
   resources :ideas, shallow: true do
     resources :photos
   end
