@@ -1,14 +1,2 @@
-<%= form_tag item_charges_path(@item) do %>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="AEPi Omega D"
-          data-description=<%= @item.name %> 
-          data-amount=<%= @item.price * 100 %> 
-          data-email=<%= current_user.email %> >
- </script>
-
-
-<% end %>
-
+<%= render 'charges/form' %>
 

@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 		@photos = Photo.where(item_id: @item.id)
 	end
 
+
 	def create
 		@idea = Idea.find(params[:idea_id])	
 		@item = Item.new
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
 		redirect_to items_path
 	end
 
+
 	def edit
 		@item = Item.find params[:id]
 	end
@@ -41,12 +43,12 @@ class ItemsController < ApplicationController
 		end
 	end
 
+
 	def destroy
 		@item = Item.find(params[:id])
 		@item.destroy
 		redirect_to items_path
 	end
-
 
 
 	private

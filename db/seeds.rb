@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-Item.create(name: 'blake', price: 2, description: "guini")
+Item.delete_all
+Item.create(name: 'St Patty\'s shirt 2015', price: 25, description: "they're green!")
 Item.create(name: 'austin', price: 1, description: "super guini")
