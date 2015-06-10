@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
 	belongs_to :idea
+	belongs_to :item
 
   	has_attached_file :image,
     	:path => ":rails_root/public/images/:id/:filename",
