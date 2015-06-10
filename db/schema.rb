@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20150609085428) do
 
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id"
 
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "like_likes", force: :cascade do |t|
     t.string   "liker_type",    null: false
     t.integer  "liker_id",      null: false
@@ -59,14 +67,6 @@ ActiveRecord::Schema.define(version: 20150609085428) do
   end
 
   add_index "photos", ["idea_id"], name: "index_photos_on_idea_id"
-
-  create_table "items", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "price"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
