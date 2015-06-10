@@ -1,11 +1,7 @@
 <h1>Orders for <%=@item.name %></h1>
+<h2>Total units ordered: <%=@orders.size%> </h2>
+<h2>XS: <%=@orders.where(size: "XS").size%>  S: <%=@orders.where(size: "S").size%>  M: <%=@orders.where(size: "M").size%> XS: <%=@orders.where(size: "L").size%> XL: <%=@orders.where(size: "XL").size%> 
+</h2>
 
-<div class="row">
-<% @orders.each do | order |%>
-	<div class="col-sm-6 col-md-4 col-lg-3">
-	<p> 
-	<%= order.name %>  <%= order.size %>  <%= order.comment %> $<%= order.price %>
-	</p>
-	</div>
-<% end %>
-</div>
+<%= render 'orders/orders_grid' %>
+

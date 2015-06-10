@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+gem "wice_grid", '3.4.2' 
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'devise'

@@ -1,0 +1,19 @@
+<%= grid(@orders_grid) do |g|
+
+  g.column name:  'Name' do |order|
+    order.name
+  end
+
+  g.column name:  'Size'  do |order|
+    order.size
+  end
+
+  g.column  name:  'Comment' do |order|
+    order.comment
+  end
+
+  g.column  name:  'price' do |order|
+    order.price
+  end
+
+end %>

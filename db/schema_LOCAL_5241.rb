@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150610125652) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "name"
-    t.integer  "price"
   end
 
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id"
