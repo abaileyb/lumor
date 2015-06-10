@@ -1,6 +1,9 @@
 <h1> <%= @idea.name %> - <%= @idea.description %> </h1>
+<h1> <%= link_to 'Push To Store' , idea_items_path(@idea),
+        method: :post %>
+<h2> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </h2>
 <h2> Price: $<%= @idea.price %> </h2>
-<p> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </p>
+
 
 <div class="row row-centered">
 <% @photos.each do |photo| %>

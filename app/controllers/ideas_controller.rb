@@ -16,15 +16,7 @@ class IdeasController < ApplicationController
 		@user = current_user
 	end
 
-	def create
-		@user = current_user
-		@idea = @user.ideas.create(idea_params)
-		if @idea.save
-			redirect_to ideas_path
-		else
-			render 'new'
-		end
-	end
+
 
 	def create
   		@idea = Idea.new(idea_params)

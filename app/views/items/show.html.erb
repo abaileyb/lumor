@@ -1,10 +1,21 @@
-<h1> <%= @item.name %> - $<%= @item.price %> </h1>
-<h2> <%= @item.description %> </h2>
+<h1> <%= @item.name %> - <%= @item.description %> $<%= @item.price %> </h1>
+<h2> <%= link_to 'Add new photo', new_item_photo_path(@item) %> </h2>
+
+<div class="row row-centered">
+<% @photos.each do |photo| %>
+	<div class="col-sm-3 col-centered item-image-box">
+		<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
+		<p> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+	</div>
+<% end %>
+</div>
 
 <p> <%= render 'charges/form' %></p>
 
+
 <% if policy(@item).update? %>
-<p> <%= link_to 'Orders', item_orders_path(@item) %> </p>
-<p> <%= link_to 'Edit', edit_item_path(@item) %> </p>
-<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+	<p> <%= link_to 'Orders', item_orders_path(@item) %> </p>
+	<p> <%= link_to 'Edit', edit_item_path(@item) %> </p>
+	<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
 <% end %>
+

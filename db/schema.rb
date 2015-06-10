@@ -44,7 +44,10 @@ ActiveRecord::Schema.define(version: 20150610125652) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "idea_id"
   end
+
+  add_index "items", ["idea_id"], name: "index_items_on_idea_id"
 
   create_table "like_likes", force: :cascade do |t|
     t.string   "liker_type",    null: false
@@ -78,9 +81,11 @@ ActiveRecord::Schema.define(version: 20150610125652) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "idea_id"
+    t.integer  "item_id"
   end
 
   add_index "photos", ["idea_id"], name: "index_photos_on_idea_id"
+  add_index "photos", ["item_id"], name: "index_photos_on_item_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

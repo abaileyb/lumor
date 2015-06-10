@@ -18,8 +18,14 @@ mount Like::Engine => '/'
   resources :ideas, shallow: true do
     resources :photos
   end
+
+  resources :items, shallow: true do
+    resources :photos
+  end 
 #test this below
-  resources :ideas
+  resources :ideas do
+    resources :items
+  end
 
   resources :items do
     resources :charges
@@ -34,6 +40,8 @@ mount Like::Engine => '/'
   resources :users do
     resources :comments
   end
+
+
 
 
 
