@@ -6,16 +6,16 @@ class ChargesController < ApplicationController
 
 	def create
 	  # Amount in cents
-
+	  @user = current_user
 	  @item = Item.find(params[:item_id])
 	  @amount = @item.price * 100
 
-#i think this should take data from the stripe form 
-	  :size => params[:size]
-	  :extra => params[:description]
+	#i think this should take data from the stripe form 
+	  @siz = params[:size]
+	  @extra = params[:description]
 	  
 	  customer = Stripe::Customer.create(
-	    :email => 'example@stripe.com',
+	    :email => params[:stripeEmail],
 	    :card  => params[:stripeToken]
 	  )
 
@@ -26,12 +26,12 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
+
+	  Order.create(name: "#{@user.first_name} #{@user.last_name}", 
+	  	size: @siz, comment: @extra, product: @item.name, price: @item.price)
+
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
 	  redirect_to charges_path
 	end
-
-	
-
-
 end
