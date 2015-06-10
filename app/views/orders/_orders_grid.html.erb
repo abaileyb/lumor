@@ -1,4 +1,4 @@
-<%= grid(@orders_grid) do |g|
+<%= grid(@orders_grid, hide_csv_button: true) do |g|
 
   g.column name:  'Name' do |order|
     order.name

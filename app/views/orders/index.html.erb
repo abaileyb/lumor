@@ -3,5 +3,7 @@
 <h2>XS: <%=@orders.where(size: "XS").size%>  S: <%=@orders.where(size: "S").size%>  M: <%=@orders.where(size: "M").size%> XS: <%=@orders.where(size: "L").size%> XL: <%=@orders.where(size: "XL").size%> 
 </h2>
 
+<button class="btn btn-primary wg-external-csv-export-button" data-grid-name="ordersheet">Export To CSV</button>
+
 <%= render 'orders/orders_grid' %>
 
