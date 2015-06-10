@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
 	def show
 		@idea = Idea.find(params[:id])
 		@photos = Photo.where(idea_id: @idea.id)
+		@comments = Comment.where(idea_id: @idea.id)
 	end
 
 	def new
@@ -64,14 +65,13 @@ class IdeasController < ApplicationController
 
 	def destroy
 		@idea = Idea.find(params[:id])
-		authorize @idea
 		@idea.destroy
 		redirect_to ideas_path
 	end
 
 	private
 		def idea_params
-			params.require(:idea).permit(:name, :description)
+			params.require(:idea).permit(:name, :description, :price)
 		end
 
 
