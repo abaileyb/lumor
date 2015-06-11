@@ -1,45 +1,67 @@
-<h1> <%= @idea.name %> - <%= @idea.description %> </h1>
-<h1> <%= link_to 'Push To Store' , idea_items_path(@idea),
-        method: :post %>
-<% if policy(@idea).update? %>
-<h2> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </h2>
-<% end %>
-<h2> Price: $<%= @idea.price %> </h2>
+
+<style type="text/css">
+	.delete{
+		text-align: center;
+	}
+	.col-sm-5{
+		background-color: rgba(84,171,255,.0);
+	}
+	.comment{
+		margin-bottom: 0px;
+		margin-top: 25px;
+	}
+	.add_com{
+		margin-top: 30px;
+	}
+</style>
 
 
-<div class="row row-centered">
-<% @photos.each do |photo| %>
-	<div class="col-sm-3 col-centered item-image-box">
-		<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
-		<p> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+<br/><br/><br/><br/>
+
+<div class="row">
+	<div class="col-sm-7">
+		<h1> $<%= @idea.price %> <%= @idea.name %> 
+		<% if Like::Like.liking?(current_user, @idea) %> <!--This is Better -->
+  			<%= link_to image_tag(asset_path( 'dislike.png' ), height: 30, width: 60), like_path_for(@idea), method: :delete %>
+		<% else %>
+  			<%= link_to image_tag(asset_path( 'like.png' ), height: 30, width: 60) , like_path_for(@idea), method: :post %>
+		<% end %>
+		<%=Like::Like.with_likeable(@idea).count%>
+		</h1>
+
+		<p class="center"> <%= link_to 'Push To Store' , idea_items_path(@idea),
+        method: :post %></p>
+
+		<div class="row row-centered">
+		<% @photos.each do |photo| %>
+			<div class="col-sm-3 col-centered item-image-box">
+				<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
+				<p class="delete"> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+			</div>
+		<% end %>
+		</div>
+		<p class="center"><%= @idea.description %> </p>
+		<h2> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </h2>
+
 	</div>
-<% end %>
-</div>
 
+	<vr/>
 
-<% if Like::Like.liking?(current_user, @idea) %> <!--This is Better -->
-  <%= link_to image_tag(asset_path( 'dislike.png' ), height: 30, width: 60), like_path_for(@idea), method: :delete %>
-<% else %>
-  <%= link_to image_tag(asset_path( 'like.png' ), height: 30, width: 60) , like_path_for(@idea), method: :post %>
-<% end %>
+	<div class="col-sm-5">
 
+	<h2>Comments</h2>
 
-<%=Like::Like.with_likeable(@idea).count%>
-
-
-<h2>Comments</h2>
-
-<% @comments.each do |comment| %>
-	<h2><%= User.find(comment.user_id).first_name %></h2>
-	<strong>Comment:</strong>
-  	<p><%= comment.text %></p>
-  	<%= link_to 'Destroy Comment', [comment.idea, comment],
-        method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+	<% @comments.each do |comment| %>
+		<p class="comment"><%= User.find(comment.user_id).first_name %> - <%= comment.text %> </p>
+  		<%= link_to 'Destroy Comment', [comment.idea, comment],
+        	method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
  
-<h2>Add a comment:</h2>
+	<p class="add_com">Add a comment:</p>
+	<p class="center"><%= render 'comments/form' %></p>
 
-<%= render 'comments/form' %>
+	</div>
+</div>
 
 <% if policy(@idea).update? %>
 

@@ -2,18 +2,11 @@
 	.title{
 		text-align: center;
 	}
-	.img_preview{
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	    max-width: 350px;
-	    height: 250px;
-	    width: auto;
-	}
+
 
 </style>
 
-
+<br/><br/><br/>
 <h1>Ideas Index</h1>
 
 
@@ -22,9 +15,9 @@
 	<div class="col-sm-6 col-md-4 col-lg-3 col-centered item-image-box">
 		
 		<% if idea.photos.first %>
-			<td><%= image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name), :class => "img_preview") %></td>
+			<td><%= link_to image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name), height: 250, width: 250) , idea_path(idea) %></td>
 		<% else %>
-			<td><%= link_to image_tag('default-image.png',:class => "img_preview"), idea_path(idea) %>
+			<td><%= link_to image_tag('default-image.png', height: 250, width: 250) , idea_path(idea) %></td>
 		<% end %>
 		<p class="title"> <%= idea.name %> </p>
 
