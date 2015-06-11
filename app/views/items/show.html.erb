@@ -1,22 +1,36 @@
+<style>
+	.des{
+		text-align: center;
+	}
+</style>
+
 <br/><br/><br/>
 
-<h1> <%= @item.name %> - <%= @item.description %> $<%= @item.price %> </h1>
-<h2> <%= link_to 'Add new photo', new_item_photo_path(@item) %> </h2>
+<h1> $<%= @item.price %> <%= @item.name %> </h1>
+
 
 <div class="row row-centered">
 <% @photos.each do |photo| %>
 	<div class="col-sm-3 col-centered item-image-box">
 		<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
+		<% if current_user.admin? || current_user == @item.user %>
 		<p> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+		<% end %>
 	</div>
 <% end %>
+
+<br/>
+<p class="des"><%= @item.description %></p>
+<p class="des"><%='Total Orders = ' "#{@item.orders.count}"%></p>
 </div>
-<h3><%='Total Orders = ' "#{@item.orders.count}"%></h3>
+
 
 <p> <%= render 'charges/form' %></p>
 
 
 <% if current_user.admin? %>
+	<p class="console"> Admin Console: </p>
+	<p> <%= link_to 'Add new photo', new_item_photo_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
 	<p> <%= link_to 'Orders', item_orders_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
 	<p> <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
 	<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" }, class: "btn btn-primary btn-lg outline" %> </p>

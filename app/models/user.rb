@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   enum role: [:user, :admin] #defaults to user
   has_many :comments
   has_many :ideas
+  has_many :items
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

@@ -45,7 +45,9 @@
 		<% @photos.each do |photo| %>
 			<div class="col-sm-6 col-centered item-image-box">
 				<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
-				<p class="delete"> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+				<% if current_user.admin? || current_user == @idea.user %>
+					<p class="delete"> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+				<% end %>
 			</div>
 		<% end %>
 		</div>
