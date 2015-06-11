@@ -2,7 +2,7 @@
 	.title{
 		text-align: center;
 	}
-	img{
+	.img_preview{
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
@@ -22,9 +22,9 @@
 	<div class="col-sm-6 col-md-4 col-lg-3 col-centered item-image-box">
 		
 		<% if idea.photos.first %>
-			<td><%= image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name)) %></td>
+			<td><%= image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name), :class => "img_preview") %></td>
 		<% else %>
-			<%= link_to image_tag('default-image.png'), idea_path(idea) %>
+			<td><%= link_to image_tag('default-image.png',:class => "img_preview"), idea_path(idea) %>
 		<% end %>
 		<p class="title"> <%= idea.name %> </p>
 
