@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require font-awesome
+ *= require grayscale
  *= require_tree .
  *= require_self
- *= require grayscale
  */
 
 
@@ -25,6 +25,39 @@ body{
   max-width: 300px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
+  background-color: rgba(255, 255, 255, 0.34);
+  border: 2px solid #9B9999;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.81);
+   color: black;
+
+}
+.border-form-div-2{
+  width: 290px;
+  height: 140px;
+  padding: 5px;
+  margin: 0px;  
+  background-color: rgba(255, 255, 255, 0.34);
+  border: 2px solid #9B9999;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.81);
+   color: black;
+
+}
+
+.border-form-div-3{
+  width: 280px;
+  height: 200px;
+  padding: 5px;
+  margin: 0px auto;  
   background-color: rgba(255, 255, 255, 0.34);
   border: 2px solid #9B9999;
   -webkit-border-radius: 5px;

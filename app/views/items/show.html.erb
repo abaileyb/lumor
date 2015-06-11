@@ -14,8 +14,8 @@
 
 
 <% if policy(@item).update? %>
-	<p> <%= link_to 'Orders', item_orders_path(@item) %> </p>
-	<p> <%= link_to 'Edit', edit_item_path(@item) %> </p>
-	<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+	<p> <%= link_to 'Orders', item_orders_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
+	<p> <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
+	<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" }, class: "btn btn-primary btn-lg outline" %> </p>
 <% end %>
 
