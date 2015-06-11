@@ -1,9 +1,17 @@
+
 <style type="text/css">
 	.delete{
 		text-align: center;
 	}
 	.col-sm-5{
-		background-color: blue;
+		background-color: rgba(84,171,255,.0);
+	}
+	.comment{
+		margin-bottom: 0px;
+		margin-top: 25px;
+	}
+	.add_com{
+		margin-top: 30px;
 	}
 </style>
 
@@ -34,27 +42,26 @@
 		</div>
 		<p class="center"><%= @idea.description %> </p>
 		<h2> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </h2>
+
 	</div>
 
-
+	<vr/>
 
 	<div class="col-sm-5">
 
 	<h2>Comments</h2>
 
 	<% @comments.each do |comment| %>
-		<h2><%= User.find(comment.user_id).first_name %></h2>
-		<strong>Comment:</strong>
-  		<p><%= comment.text %></p>
+		<p class="comment"><%= User.find(comment.user_id).first_name %> - <%= comment.text %> </p>
   		<%= link_to 'Destroy Comment', [comment.idea, comment],
         	method: :delete, data: { confirm: 'Are you sure?' } %>
 	<% end %>
  
-	<h2>Add a comment:</h2>
-
+	<p class="add_com">Add a comment:</p>
 	<p class="center"><%= render 'comments/form' %></p>
 
 	</div>
+</div>
 
 <% if policy(@idea).update? %>
 

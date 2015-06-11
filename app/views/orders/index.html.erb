@@ -1,9 +1,25 @@
+<style type="text/css">
+  
+  table.my-grid {
+    border: 1px solid red;
+    color: black;
+    background-color: white;
+  }
+  .table{
+  	padding: 10px;
+  }
+</style>
+
+
+
+
 <h1>Orders for <%=@item.name %></h1>
 <h2>Total units ordered: <%=@orders.size%> </h2>
 <h2>XS: <%=@orders.where(size: "XS").size%>  S: <%=@orders.where(size: "S").size%>  M: <%=@orders.where(size: "M").size%> XS: <%=@orders.where(size: "L").size%> XL: <%=@orders.where(size: "XL").size%> 
 </h2>
 
-<button class="btn btn-primary wg-external-csv-export-button" data-grid-name="ordersheet">Export To CSV</button>
 
+<div class="table">
 <%= render 'orders/orders_grid' %>
-
+</div>
+<button class="btn btn-primary wg-external-csv-export-button" data-grid-name="ordersheet">Export To CSV</button>
