@@ -13,6 +13,9 @@
 	.add_com{
 		margin-top: 30px;
 	}
+	.console{
+		padding-left: 10px;
+	}
 </style>
 
 
@@ -29,9 +32,7 @@
 		<%=Like::Like.with_likeable(@idea).count%>
 		</h1>
 
-		<p class="center"> <%= link_to 'Push To Store' , idea_items_path(@idea),
-        method: :post %></p>
-
+		
 		<div class="row row-centered">
 		<% @photos.each do |photo| %>
 			<div class="col-sm-6 col-centered item-image-box">
@@ -62,13 +63,19 @@
 	</div>
 </div>
 
+
+
 <% if policy(@idea).update? %>
-
-
+	<% if current_user.admin? %>
+	<p class="console"> Admin Console: </p>
+	<p> <%= link_to 'Push To Store' , idea_items_path(@idea), class: "btn btn-primary btn-lg outline",method: :post %></p>
+	
+	<% else %>
+	<p class="console"> Creator Console: </p>
+	<% end %>
 <p> <%= link_to 'Add new photo', new_idea_photo_path(@idea), class: "btn btn-primary btn-lg outline" %> </p>
 <p> <%= link_to 'Edit', edit_idea_path(@idea), class: "btn btn-primary btn-lg outline" %> </p>
 <p> <%= link_to 'Destroy', idea_path(@idea), class: "btn btn-primary btn-lg outline", method: :delete, data:{ confirm: "Are you sure?" } %> </p>
-
 <% end %>
 
 

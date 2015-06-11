@@ -2,15 +2,22 @@
 	.title{
 		text-align: center;
 	}
+	.new_ida{
 
+	}
 
 </style>
 
 
 	<br/><br/><br/>
-	<h1>Ideas Index</h1>
-
-
+	<h1>Ideas Index 
+		
+	</h1>
+	<h1>
+	<div class="new-idea">
+		<%= button_to "Add an Idea", new_idea_path, :class => "btn btn-info btn-lg raised", :method => :get %>
+		</div>
+	</h1>
 	<div class="row row-centered">
 	<% @ideas.each do | idea |%>
 		<div class="col-sm-6 col-md-4 col-lg-3 col-centered item-image-box">
@@ -26,7 +33,5 @@
 	<% end %>
 	</div>
 
-	<div>
-	<%= button_to "Add an Idea", new_idea_path, :class => "btn btn-info btn-lg raised", :method => :get %>
-	</div>
+
 
