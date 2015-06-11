@@ -1,9 +1,14 @@
+<style type="text/css">
+	.form-sub-2{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+<div class="border-form-div-2">
 <%= form_for([@idea, @idea.comments.build]) do |f| %>
 
-  <p>
-    <%= f.text_area :text, :placeholder => "Comment" %>
-  </p>
-  <p>
-    <%= f.submit "Submit", :class=>"btn btn-primary" %>
-  </p>
+    <%= f.text_area :text, :placeholder => "Comment", rows: 3, cols: 35 %>
+    <%= f.submit "Submit", :class=>"btn btn-primary form-sub-2" %>
 <% end %>
+</div>
