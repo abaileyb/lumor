@@ -1,8 +1,14 @@
-<%= simple_form_for @idea, html: {multipart: true} do |f| %>
 
-	<%= f.input :name %>
-	<%= f.input :description %>
-	<%= f.input :price %>
-	<%= f.button :submit %>
+<div class="border-form-div">
+
+<%= form_for @idea, html: {multipart: true} do |f| %>
+
+	<%= f.text_field :name, :placeholder => "Idea Name" %>
+	<%= f.text_field :description, :placeholder => "Description" %>
+	<%= f.text_field :price, :placeholder => "Price" %>
+	<%= f.submit "create", :class=>"btn btn-primary"%>
 
 <% end %>
+
+</div>
+
