@@ -14,6 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require grayscale.js
+//= require jquery.easing.min.js
 //= require turbolinks
 //= require_tree .
 //= require wice_grid

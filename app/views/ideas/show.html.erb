@@ -10,8 +10,16 @@
 		margin-bottom: 0px;
 		margin-top: 25px;
 	}
+	.ct{
+		overflow: scroll;
+		font-size: 15px;
+	}
 	.add_com{
 		margin-top: 30px;
+	}
+	.des{
+		text-align: center;
+		overflow: scroll;
 	}
 </style>
 
@@ -40,24 +48,23 @@
 			</div>
 		<% end %>
 		</div>
-		<p class="center"><%= @idea.description %> </p>
-
+		<p class="des"><%= @idea.description %> </p>
 	</div>
 
-	<vr/>
 
 	<div class="col-sm-5">
 
-	<h2>Comments</h2>
+		<h2>Comments</h2>
 
-	<% @comments.each do |comment| %>
-		<p class="comment"><%= User.find(comment.user_id).first_name %> - <%= comment.text %> </p>
-  		<%= link_to 'Destroy Comment', [comment.idea, comment],
-        	method: :delete, data: { confirm: 'Are you sure?' } %>
-	<% end %>
- 
-	<p class="add_com">Add a comment:</p>
-	<p class="center"><%= render 'comments/form' %></p>
+		<% @comments.each do |comment| %>
+			<p class="comment"><%= User.find(comment.user_id).first_name.first %>. <%= User.find(comment.user_id).last_name %>:</p>
+			<p class="ct"><%= comment.text %> </p>
+	  		<%= link_to 'Destroy Comment', [comment.idea, comment],
+	        	method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	 
+		<p class="add_com">Add a comment:</p>
+		<p class="center"><%= render 'comments/form' %></p>
 
 	</div>
 </div>
