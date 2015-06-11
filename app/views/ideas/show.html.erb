@@ -4,7 +4,7 @@
 		text-align: center;
 	}
 	.col-sm-5{
-		background-color: rgba(84,171,255,.0);
+		background-color: rgba(255,255,255,.2);
 	}
 	.comment{
 		margin-bottom: 0px;
@@ -34,14 +34,13 @@
 
 		<div class="row row-centered">
 		<% @photos.each do |photo| %>
-			<div class="col-sm-3 col-centered item-image-box">
+			<div class="col-sm-6 col-centered item-image-box">
 				<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
 				<p class="delete"> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
 			</div>
 		<% end %>
 		</div>
 		<p class="center"><%= @idea.description %> </p>
-		<h2> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </h2>
 
 	</div>
 
@@ -65,6 +64,8 @@
 
 <% if policy(@idea).update? %>
 
+
+<p> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </p>
 <p> <%= link_to 'Edit', edit_idea_path(@idea) %> </p>
 <p> <%= link_to 'Destroy', idea_path(@idea), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
 

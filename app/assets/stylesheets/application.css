@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require font-awesome
+ *= require grayscale
  *= require_tree .
  *= require_self
- *= require grayscale
  */
 
 

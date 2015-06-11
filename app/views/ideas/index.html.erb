@@ -6,25 +6,27 @@
 
 </style>
 
-<br/><br/><br/>
-<h1>Ideas Index</h1>
+
+	<br/><br/><br/>
+	<h1>Ideas Index</h1>
 
 
-<div class="row row-centered">
-<% @ideas.each do | idea |%>
-	<div class="col-sm-6 col-md-4 col-lg-3 col-centered item-image-box">
-		
-		<% if idea.photos.first %>
-			<td><%= link_to image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name), height: 250, width: 250) , idea_path(idea) %></td>
-		<% else %>
-			<td><%= link_to image_tag('default-image.png', height: 250, width: 250) , idea_path(idea) %></td>
-		<% end %>
-		<p class="title"> <%= idea.name %> </p>
+	<div class="row row-centered">
+	<% @ideas.each do | idea |%>
+		<div class="col-sm-6 col-md-4 col-lg-3 col-centered item-image-box">
+			
+			<% if idea.photos.first %>
+				<td><%= link_to image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name), height: 250, width: 250) , idea_path(idea) %></td>
+			<% else %>
+				<td><%= link_to image_tag('default-image.png', height: 250, width: 250) , idea_path(idea) %></td>
+			<% end %>
+			<p class="title"> <%= idea.name %> </p>
 
+		</div>
+	<% end %>
 	</div>
-<% end %>
-</div>
 
-<div>
-<%= button_to "Add an Idea", new_idea_path, :class => "btn btn-info btn-lg raised", :method => :get %>
-</div>
+	<div>
+	<%= button_to "Add an Idea", new_idea_path, :class => "btn btn-info btn-lg raised", :method => :get %>
+	</div>
+
