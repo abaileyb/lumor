@@ -1,7 +1,9 @@
 <h1> <%= @idea.name %> - <%= @idea.description %> </h1>
 <h1> <%= link_to 'Push To Store' , idea_items_path(@idea),
         method: :post %>
+<% if policy(@idea).update? %>
 <h2> <%= link_to 'Add new photo', new_idea_photo_path(@idea) %> </h2>
+<% end %>
 <h2> Price: $<%= @idea.price %> </h2>
 
 

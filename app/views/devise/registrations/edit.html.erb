@@ -1,50 +1,99 @@
+<style type="text/css">
+  .content:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+  display: block;
+  background: url('http://i59.tinypic.com/1060rhf.jpg')no-repeat center center fixed;
+  width: 1900px;
+  height: 1500px;
+  
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
 
+/*  body{
+    background-color: black;
+    background: url('http://i58.tinypic.com/33uzlfc.jpg') no-repeat center center fixed;
+    z-index: 1;
+    right: 0;
+    left: 0;
+
+  }*/
+  .sign_up{
+    background-color: rgba(175, 175, 175, .85);
+    display: block;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    color: white;
+  }
+  h2{
+    text-align: center;
+    color: black;
+
+  }
+  h1{
+    margin-top: 100px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 70px;
+    color: white;
+  }
+  .logo{
+
+    font-family: 'Lobster', cursive;
+    font-weight: 400;
+    font-size: 70px;
+    text-align: center;
+    color: rgb(55, 105, 166);
+    -webkit-text-stroke: 1px black;
+    margin-bottom: 100px;
+  }
+  .field{
+    text-align: center;
+  }
+  .actions{
+    text-align: center;
+  }
+  .login{
+    text-align: center;
+    font-size: 16px;
+  }
+
+</style>
+
+<div class="logo">House Mom </div>
+<div class="border-form-div">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+   <%= f.text_field :first_name, :autofocus => true, :placeholder => 'First name' %> <br>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
+  <%= f.text_field :last_name, :autofocus => true, :placeholder => 'Last name' %> <br>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <%= f.email_field :email, :autofocus => true, :placeholder => 'Email address' %><br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <b>New</b> <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <%= f.password_field :password, :placeholder => 'Password' %><br>
+  <%= f.password_field :password_confirmation, :placeholder => 'Password confirmation' %><br>
 
-  <div class="field">
-    <b>New</b> <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  <%= f.password_field :current_password, :placeholder => '*Current Password'  %><br>
 
-  <div class="field">
-    <b>*</b><%= f.label :current_password %> <i>(You must enter your password to confirm changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+  <%= f.submit "Submit Changes",:class=>'btn btn-primary' %>
 <% end %>
+</div>  
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
