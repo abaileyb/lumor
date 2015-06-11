@@ -69,7 +69,9 @@
 }
 
 
-a { color: red; }
+a { 
+    color: #F5A005; 
+}
 
 body{
   color: white
