@@ -1,0 +1,18 @@
+<br>
+<br>
+<br>
+<br>
+<h1>Submit a new Fixit Request</h1>
+<br>
+<div class="border-form-div">
+
+<%= form_for @fixit, html: {multipart: true} do |f| %>
+
+	<%= f.text_field :name, :placeholder => "Name" %>
+	<%= f.text_field :description, :placeholder => "Description" %>
+	<%= f.text_field :location, :placeholder => "location" %>
+	<%= f.submit "create", :class=>"btn btn-primary"%>
+
+<% end %>
+
+</div>

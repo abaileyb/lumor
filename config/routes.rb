@@ -8,8 +8,11 @@ mount Like::Engine => '/'
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  get 'fixits/thanks'
 
   resources :orders
+
+  resources :fixits
   
   resources :items do
     resources :orders
@@ -40,6 +43,7 @@ mount Like::Engine => '/'
   resources :users do
     resources :comments
   end
+
 
 
 

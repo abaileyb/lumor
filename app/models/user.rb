@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :ideas
   has_many :items
+  has_many :fixits
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
