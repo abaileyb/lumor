@@ -8,6 +8,10 @@ class ItemsController < ApplicationController
 		@photos = Photo.where(item_id: @item.id)
 	end
 
+	def new
+		@item = Item.new
+		@user = current_user
+	end
 
 	def create
 		@idea = Idea.find(params[:idea_id])	

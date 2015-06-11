@@ -15,7 +15,7 @@
 <p> <%= render 'charges/form' %></p>
 
 
-<% if policy(@item).update? %>
+<% if current_user.admin? %>
 	<p> <%= link_to 'Orders', item_orders_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
 	<p> <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
 	<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" }, class: "btn btn-primary btn-lg outline" %> </p>
