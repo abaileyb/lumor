@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'devise-bootstrap-views'
 
 gem "wice_grid", '3.4.2' 
 
