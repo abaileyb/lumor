@@ -3,7 +3,7 @@
  <%= select_tag "size", "<option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option>".html_safe, multiple: false, class: 'form_input', id: 'unique_id' %>
  </p>
  <p> 
- <%= text_area_tag "description", 'comments?' %>
+ <%= text_field_tag 'description', nil, placeholder: 'Order Comments?', size: 35 %>
  </p>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -12,6 +12,8 @@
           data-amount=<%= @item.price * 100 %> 
           data-allow-remember-me=false
           data-email=<%= current_user.email %>
+          data-image=<%= asset_path('aepi_small.jpg')%>
+          data-zip-code=true
           >
  </script>
 

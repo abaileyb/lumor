@@ -1,3 +1,33 @@
+<style type="text/css">
+  body{
+    background-image: url(http://www.michigandaily.com/files/asg.NEW_.aepi_.11-6-13.0010%20copy.jpg);
+    background-size: cover;
+  }
+  .sign_up{
+    background-color: rgba(255, 255, 255, .85);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+  h2{
+    text-align: center;
+  }
+  .field{
+    text-align: center;
+  }
+  .actions{
+    text-align: center;
+  }
+  .login{
+    text-align: center;
+    font-size: 16px;
+  }
+
+</style>
+
+
+<div class="sign_up col-xs-6 col-sm-3 col-centered" >
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -39,3 +69,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>

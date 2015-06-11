@@ -1,8 +1,7 @@
 <%= form_for([@idea, @idea.comments.build]) do |f| %>
 
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.text_area :text, :placeholder => "Comment" %>
   </p>
   <p>
     <%= f.submit %>
