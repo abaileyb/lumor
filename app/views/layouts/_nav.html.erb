@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -9,13 +9,14 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#"></a>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"> <%= link_to 'Home', root_path, :class => 'navbar-link' %><span class="sr-only">(current)</span></a></li>
         <% if user_signed_in? %>
+        <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'Ideas', ideas_path %> </li>
         <li><%= link_to 'Store', items_path %> </li>
 
@@ -27,7 +28,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% if user_signed_in? %> 
-          <br>Logged in as <strong><%= current_user.first_name +  " "  + current_user.last_name %></strong>.
+          <br>Logged in as 
+          <strong><%= current_user.first_name +  " "  + current_user.last_name %></strong>.
+          <% if current_user.role == 1 %>
+            (Admin)
+          <% end %>
           <% end %>
         </li>
         <% if user_signed_in? %> 

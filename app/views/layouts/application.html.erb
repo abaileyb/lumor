@@ -16,7 +16,9 @@
 </head>
 
 <body>
+<% if user_signed_in? %>
 	<%= render 'layouts/nav' %>
+<% end %>
 
 
 <% if notice %>
