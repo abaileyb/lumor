@@ -5,6 +5,9 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+
+  
  .btn {
     padding: 14px 24px;
     border: 0 none;
@@ -64,6 +67,7 @@
     color: #007299;
     box-shadow: none;
 }
+
 
 a { color: red; }
 

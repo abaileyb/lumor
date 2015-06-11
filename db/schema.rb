@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610125652) do
+ActiveRecord::Schema.define(version: 20150611192520) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "likes"
@@ -45,9 +45,11 @@ ActiveRecord::Schema.define(version: 20150610125652) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "idea_id"
+    t.integer  "user_id"
   end
 
   add_index "items", ["idea_id"], name: "index_items_on_idea_id"
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "like_likes", force: :cascade do |t|
     t.string   "liker_type",    null: false
