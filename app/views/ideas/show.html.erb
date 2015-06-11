@@ -22,9 +22,9 @@
 	<div class="col-sm-7">
 		<h1> $<%= @idea.price %> <%= @idea.name %> 
 		<% if Like::Like.liking?(current_user, @idea) %> <!--This is Better -->
-  			<%= link_to image_tag(asset_path( 'dislike.png' ), height: 30, width: 60), like_path_for(@idea), method: :delete %>
+  			<%= link_to "dislike", like_path_for(@idea), :class=>"btn btn-danger btn-xs", method: :delete %>
 		<% else %>
-  			<%= link_to image_tag(asset_path( 'like.png' ), height: 30, width: 60) , like_path_for(@idea), method: :post %>
+  			<%= link_to 'like', like_path_for(@idea), :class=>"btn btn-primary btn-lg",method: :post %>
 		<% end %>
 		<%=Like::Like.with_likeable(@idea).count%>
 		</h1>
