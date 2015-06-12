@@ -11,6 +11,18 @@
 		text-align: center;
 	}
 
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.created{
+		text-align: center;
+		font-size: 13px;
+	}
+
+
 </style>
 
 
@@ -24,9 +36,9 @@
 	</div>
 	
 <% end %>
-	<div class="row row-centered">
+	<div class="row">
 	<% @items.each do | item |%>
-		<div class="col-sm-6 col-md-4 col-lg-3 col-centered item-image-box">
+		<div class="col-sm-6 col-md-4 col-lg-3 item-image-box">
 			
 			<% if item.photos.first %>
 				<td><%= link_to image_tag((item.photos.first.id.to_s + "/" + item.photos.first.image_file_name), height: 250, width: 250) , item_path(item) %></td>
@@ -34,6 +46,7 @@
 				<td><%= link_to image_tag('default-image.png', height: 250, width: 250) , item_path(item) %></td>
 			<% end %>
 			<p class="title"> <%= item.name %> </p>
+			<p class="created"> Created by <%= item.user.first_name %> <%= item.user.last_name %></p>
 
 		</div>
 	<% end %>

@@ -31,7 +31,8 @@
 
 <div class="row">
 	<div class="col-sm-7">
-		<h1> $<%= @idea.price %> <%= @idea.name %> 
+		<h1> $<%= @idea.price %> <%= @idea.name %> </h1>
+		<h1>
 		<% if Like::Like.liking?(current_user, @idea) %> <!--This is Better -->
   			<%= link_to "dislike", like_path_for(@idea), :class=>"btn btn-default btn-xs", method: :delete %>
 		<% else %>

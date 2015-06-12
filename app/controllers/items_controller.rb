@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 	def index
-		@items = Item.all
+		@items = Item.order(:updated_at).reverse_order
 	end
 
 	def show

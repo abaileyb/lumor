@@ -3,22 +3,36 @@
 		text-align: center;
 	}
 
+	.new-idea{
+		text-align: center;
+	}
+
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.created{
+		text-align: center;
+		font-size: 13px;
+	}
+
 
 </style>
 
 
 	<br/><br/><br/>
-	<h1>All Ideas 
-		
-	</h1>
-	<h1>
+	<h1>All Ideas </h1>
+	
 	<div class="new-idea">
 		<%= button_to "Add an Idea", new_idea_path, :class => "btn btn-info btn-lg raised", :method => :get %>
 	</div>
+
 	</h1>
-	<div class="row row-centered">
+	<div class="row">
 	<% @ideas.each do | idea |%>
-		<div class="col-sm-6 col-md-4 col-lg-3 col-centered item-image-box">
+		<div class="col-sm-6 col-md-4 col-lg-3 item-image-box">
 			
 			<% if idea.photos.first %>
 				<td><%= link_to image_tag((idea.photos.first.id.to_s + "/" + idea.photos.first.image_file_name), height: 250, width: 250) , idea_path(idea) %></td>
@@ -26,6 +40,7 @@
 				<td><%= link_to image_tag('default-image.png', height: 250, width: 250) , idea_path(idea) %></td>
 			<% end %>
 			<p class="title"> <%= idea.name %> </p>
+			<p class="created"> Created by <%= idea.user.first_name %> <%= idea.user.last_name %></p>
 
 		</div>
 	<% end %>

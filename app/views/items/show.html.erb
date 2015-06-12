@@ -14,7 +14,7 @@
 	<div class="col-sm-3 col-centered item-image-box">
 		<%= image_tag(photo.id.to_s + "/" + photo.image_file_name, class: 'img-responsive') %>
 		<% if current_user.admin? || current_user == @item.user %>
-		<p> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
+		<p class="des"> <%= link_to 'Delete Photo', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %> </p>
 		<% end %>
 	</div>
 <% end %>
@@ -36,3 +36,4 @@
 	<p> <%= link_to 'Destroy', item_path(@item), method: :delete, data:{ confirm: "Are you sure?" }, class: "btn btn-primary btn-lg outline" %> </p>
 <% end %>
 
+<br/><br/><br/>
