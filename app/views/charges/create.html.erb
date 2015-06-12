@@ -1,4 +1,18 @@
-<h2>Thanks, you successfully paid <strong> $<%= @amount / 100 %> </strong>!</h2>
+<style type="text/css">
+	p{
+		text-align: center;
+		font-size: 25px;
+		font-style: italic;
+	}
+	h1{
+	
+	}
+
+</style>
 
 
-<p> <%= link_to 'Back to item index', item_path(@item) %> </p>
+<h1>Thanks, you successfully paid <strong> $<%= @amount / 100 %> </strong>!</h1>
+<p>An email reciept has been sent to <%= @user.email %></p>
+
+<p> <%= link_to 'Back to item', item_path(@item), class: "btn btn-primary btn-lg outline" %> </p>
+	

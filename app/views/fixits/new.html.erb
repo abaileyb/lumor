@@ -1,3 +1,13 @@
+<style type="text/css">
+	.myclass{
+		text-align: center;
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
+
+
+</style>
+
 <br>
 <br>
 <br>
@@ -9,8 +19,8 @@
 <%= form_for @fixit, html: {multipart: true} do |f| %>
 
 	<%= f.text_field :name, :placeholder => "Name" %>
-	<%= f.text_field :description, :placeholder => "Description" %>
-	<%= f.text_field :location, :placeholder => "location" %>
+	<%= f.text_area :description, :placeholder => "Description", rows: 3, cols: 27, :class => 'myclass' %>
+	<%= f.text_field :location, :placeholder => "Location" %>
 	<%= f.submit "create", :class=>"btn btn-primary"%>
 
 <% end %>

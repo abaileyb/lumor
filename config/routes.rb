@@ -10,6 +10,12 @@ mount Like::Engine => '/'
 
   get 'fixits/thanks'
 
+  get 'semps/basic'
+  get 'semps/alcohol'
+  get 'semps/sobers'
+  get 'semps/sizing'
+
+
   resources :orders
 
   resources :fixits
