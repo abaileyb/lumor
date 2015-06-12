@@ -26,15 +26,17 @@ class ItemsController < ApplicationController
 			@photos.each do |photo|
 				photo.item_id = @item_id
 				photo.save!
-			@item.user_id = @idea.user_id
 			end
+
+			@item.user_id = @idea.user_id
+			@item.save!
 			@idea.destroy
 		else
 			@item = Item.new(item_params)
   			@item.user_id = current_user.id
+  			@item.save!
 		end
-
-		@item.save!
+		
 		redirect_to items_path
 	end
 

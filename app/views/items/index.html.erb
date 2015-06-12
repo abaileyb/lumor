@@ -46,7 +46,7 @@
 				<td><%= link_to image_tag('default-image.png', height: 250, width: 250) , item_path(item) %></td>
 			<% end %>
 			<p class="title"> <%= item.name %> </p>
-			<p class="created"> Created by <%= item.user.first_name %> <%= item.user.last_name %></p>
+			<p class="created"> Created by <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %></p>
 
 		</div>
 	<% end %>
