@@ -1,3 +1,4 @@
+
 User.create!([
   {email: "blakealtman123@gmail.com", encrypted_password: "$2a$10$vI3Rp13vHKqY3GYKHTY0S.5AnMFrKjtdF74MDjWHVUIfPLZAvTVl6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 4, current_sign_in_at: "2015-06-12 12:07:32", last_sign_in_at: "2015-06-12 12:05:57", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Blake", last_name: "Altman", year: nil, role: 0},
   {email: "bailey@baileyberro.com", encrypted_password: "$2a$10$0YmxXrc4K/rJGajlGaXPFulHvf0FmOlD7fgIAoS4AKFL9x8dCIqmC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 4, current_sign_in_at: "2015-06-12 12:08:13", last_sign_in_at: "2015-06-12 11:45:11", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Bailey", last_name: "Berro", year: nil, role: 1},
@@ -30,3 +31,4 @@ Photo.create!([
   {image_file_name: "pv3.jpg", image_content_type: "image/jpeg", image_file_size: 28997, image_updated_at: "2015-06-12 11:39:10", idea_id: 7, item_id: nil},
   {image_file_name: "bucket_hat.jpg", image_content_type: "image/jpeg", image_file_size: 65603, image_updated_at: "2015-06-12 11:44:35", idea_id: 8, item_id: 1}
 ])
+

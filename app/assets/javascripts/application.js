@@ -21,3 +21,8 @@
 //= require wice_grid
 
 
+$(document).ready(function() {
+    $(".modal").on('shown', function() {
+        $(this).find("[autofocus]:first").focus();
+    });
+});

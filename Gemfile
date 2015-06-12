@@ -61,5 +61,8 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry-rails'
+
+  gem 'rails_12factor', group: :production
+  ruby "2.2.1"
 end
 

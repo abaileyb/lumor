@@ -1,3 +1,9 @@
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+
 <style type="text/css">
   .content:before {
   content: "";
@@ -11,14 +17,15 @@
   width: 1900px;
   height: 1500px;
   
-  -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  -o-filter: blur(3px);
-  -ms-filter: blur(3px);
-  filter: blur(3px);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
 }
 .content{
   background-color: rgba(0, 0, 0, .3);
+  padding-bottom: 200px;
 }
 
 /*  body{
@@ -44,8 +51,8 @@
     color: black;
 
   }
-  h1{
-    margin-top: 100px;
+   h1{
+    margin-top: 300px;
     font-family: 'Lato', sans-serif;
     font-weight: 900;
     font-size: 45px;
@@ -53,9 +60,10 @@
   }
   .logo{
 
+  
     font-family: 'Lobster', cursive;
     font-weight: 400;
-    font-size: 90px;
+    font-size: 140px;
     text-align: center;
     color: rgba(84, 175, 255, 1);
     -webkit-text-stroke: 2px black;
@@ -71,33 +79,83 @@
     text-align: center;
     font-size: 16px;
   }
-  .content{
-    padding-bottom: 250px;
+  h4{
+    color: black;
+    text-align: center;
+  }
+  .btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
   }
 
 </style>
+
+
 
 <div class="content">
 
 <div class="logo">House Mom </div>
 
-<div class="border-form-div">
-
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-  <%= f.email_field :email, :autofocus => true, :placeholder => 'Email address' %><br>
-
-  <%= f.password_field :password, :placeholder => 'Password' %><br>
+<!-- <div class="border-form-div">
 
 
-  <%= f.submit "Sign in", :class=>"btn btn-primary"%>
-<% end %>
+<h2>Sign up</h2>
+<%= render "devise/registrations/form" %>
 
 <%= render "devise/shared/links" %>
+</div> -->
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal" >
+  Log In
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+      </div>
+      <div class="modal-body" >
+        <div class="border-form-div">
+          <%= render "devise/sessions/form" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<h1>Alpha Epsilon Pi - Omega Deuteron</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal2" >
+  Sign Up
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign UP</h4>
+      </div>
+      <div class="modal-body" >
+        <div class="border-form-div">
+          <%= render "devise/registrations/form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<h1></h1>
+</div>
 </div>
