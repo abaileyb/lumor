@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
 	def index
 		@user = current_user
-		@ideas = Idea.all   #eventually will be able to filter by year
+		@ideas = Idea.order(:updated_at).reverse_order   #eventually will be able to filter by year
 	end
 
 

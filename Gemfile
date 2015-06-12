@@ -15,6 +15,8 @@ gem 'simple_form'
 
 gem 'paperclip'
 
+gem 'seed_dump'
+
 gem "twitter-bootstrap-rails"
 
 gem "font-awesome-rails"
