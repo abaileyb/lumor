@@ -19,4 +19,9 @@ class FixitsController < ApplicationController
 	def thanks
 	end
 
+	private
+	def fixit_params
+  		params.require(:fixit).permit(:pic,:name,:description,:location)
+	end
+
 end

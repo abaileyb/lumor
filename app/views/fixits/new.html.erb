@@ -4,6 +4,12 @@
 		font-size: 16px;
 		margin-bottom: 10px;
 	}
+	.picadd{
+		margin-bottom: 10px;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
 
 
 </style>
@@ -21,6 +27,7 @@
 	<%= f.text_field :name, :placeholder => "Name" %>
 	<%= f.text_area :description, :placeholder => "Description", rows: 3, cols: 27, :class => 'myclass' %>
 	<%= f.text_field :location, :placeholder => "Location" %>
+	<%= f.file_field :pic, :class => 'picadd' %>
 	<%= f.submit "create", :class=>"btn btn-primary"%>
 
 <% end %>
