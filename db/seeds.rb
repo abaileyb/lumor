@@ -1,9 +1,5 @@
 
-User.create!([
-  {email: "blakealtman123@gmail.com", encrypted_password: "$2a$10$vI3Rp13vHKqY3GYKHTY0S.5AnMFrKjtdF74MDjWHVUIfPLZAvTVl6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 4, current_sign_in_at: "2015-06-12 12:07:32", last_sign_in_at: "2015-06-12 12:05:57", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Blake", last_name: "Altman", year: nil, role: 0},
-  {email: "bailey@baileyberro.com", encrypted_password: "$2a$10$0YmxXrc4K/rJGajlGaXPFulHvf0FmOlD7fgIAoS4AKFL9x8dCIqmC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 4, current_sign_in_at: "2015-06-12 12:08:13", last_sign_in_at: "2015-06-12 11:45:11", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Bailey", last_name: "Berro", year: nil, role: 1},
-  {email: "rief@umich.com", encrypted_password: "$2a$10$i4jnHAQrhfCFo5UPxAHWa.pU2zwKUHrZgDyMHOjvjg3uEcOOeLPVa", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2015-06-12 12:03:26", last_sign_in_at: "2015-06-12 11:39:56", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Austin", last_name: "Rief", year: nil, role: 0}
-])
+
 Comment.create!([
   {likes: nil, title: nil, text: "I'd look huge in this, this one hundo p!", idea_id: 6, user_id: 3},
   {likes: nil, title: nil, text: "Rief your so small though...", idea_id: 6, user_id: 1},
